@@ -21,8 +21,16 @@ const store = createStore({
         secsleft: state.secsleft,
       };
     },
-    getInterval: (state) => {
-      return state.nthInterval;
+    getCurrentSession: (state) => {
+      let text;
+      if (state.nthInterval === 7) {
+        text = 'Long Break';
+      } else if (state.nthInterval % 2 === 0) {
+        text = 'Pomodoro';
+      } else if (state.nthInterval % 2 === 1) {
+        text = 'Short Break';
+      }
+      return { text: text, value: Math.ceil(state.nthInterval / 2) };
     },
     soundAlarmValue: (state) => {
       return state.soundAlarm;
