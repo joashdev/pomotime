@@ -13,17 +13,17 @@
   >
     <h1 class="font-semibold text-gray-900">{{ getCurrentSession.text }}</h1>
     <h1 class="font-thin text-5xl text-gray-900">
-      {{ mins.toString().padStart(2, '0') }}:{{
-        secs.toString().padStart(2, '0')
+      {{ getTimers.minsleft.toString().padStart(2, '0') }}:{{
+        getTimers.secsleft.toString().padStart(2, '0')
       }}
     </h1>
     <h1 class="font-bold text-gray-900">
-      <span v-if="getCurrentSession.value === 4">----</span>
+      <span v-if="getCurrentSession.value === 4">- - - -</span>
       <span v-else v-for="index in 4 - getCurrentSession.value">&bull;</span>
     </h1>
   </div>
-  <button @click="startClicked">Start</button>
-  <button @click="pauseClicked">Pause</button>
+  <button v-if="!getIsStart" @click="startClicked">Start</button>
+  <button v-if="getIsStart" @click="pauseClicked">Pause</button>
   <button @click="resetClicked">Reset</button>
 </template>
 <script>
@@ -33,71 +33,69 @@ export default {
   name: 'Timer',
   data() {
     return {
-      mins: 0,
-      secs: 0,
       interval: null,
-      isStart: false,
       audio: new Audio(audioFile),
     };
   },
-  mounted() {
+  created() {
     this.audio.src = audioFile;
-    this.initLocalTimer();
+    this.initTimeleft();
   },
   methods: {
-    initLocalTimer() {
-      if (!this.getTimers.minsleft && !this.getTimers.secsleft) {
-        if (this.getCurrentSession.text === 'Long Break') {
-          this.mins = this.getTimers.longBreak;
-        } else if (this.getCurrentSession.text === 'Pomodoro') {
-          this.mins = 0;
-        } else if (this.getCurrentSession.text === 'Short Break') {
-          this.mins = this.getTimers.shortBreak;
-        }
-        // this.mins = 0; // TODO: REMOVE this line on prod
-        this.secs = 3; // FIXME: set this.secs to 0
-      } else {
-        this.mins = this.getTimers.minsleft;
-        this.secs = this.getTimers.secsleft;
-      }
-    },
     soundAlarm() {
       if (this.soundAlarmValue) {
         this.audio.play();
       }
     },
     decrementTimer() {
-      this.secs--;
-      if (this.secs === 0 && this.mins === 0) {
+      let secs = this.getTimers.secsleft;
+      let mins = this.getTimers.minsleft;
+      secs--;
+      this.mutateTimeleft({ minsleft: mins, secsleft: secs });
+      if (secs === 0 && mins === 0) {
         clearInterval(this.interval);
-        this.isStart = false;
+        this.toggleValue(2);
         this.soundAlarm();
         this.increment({ index: 4 });
-        this.initLocalTimer();
-      } else if (this.secs === -1) {
-        this.mins--;
-        this.secs = 59;
+        this.initTimeleft();
+        return;
+      } else if (secs === -1) {
+        mins--;
+        secs = 59;
+        this.mutateTimeleft({ minsleft: mins, secsleft: secs });
       }
     },
     startClicked() {
-      if (!this.isStart) {
-        this.isStart = true;
+      if (!this.getIsStart) {
+        this.toggleValue(2);
         this.interval = null;
         this.interval = setInterval(this.decrementTimer, 1000);
       }
     },
     pauseClicked() {
-      this.isStart = false;
+      this.toggleValue(2);
       clearInterval(this.interval);
     },
     resetClicked() {
       clearInterval(this.interval);
-      this.initLocalTimer();
+      this.toggleValue(2);
+      this.mutateTimeleft({ minsleft: 0, secsleft: 0 });
+      this.initTimeleft();
     },
-    ...mapMutations(['increment']),
+    ...mapMutations([
+      'increment',
+      'mutateTimeleft',
+      'toggleValue',
+      'initTimeleft',
+    ]),
   },
   computed: {
-    ...mapGetters(['getTimers', 'getCurrentSession', 'soundAlarmValue']),
+    ...mapGetters([
+      'getTimers',
+      'getCurrentSession',
+      'soundAlarmValue',
+      'getIsStart',
+    ]),
   },
 };
 </script>

@@ -6,8 +6,8 @@ const store = createStore({
     shortBreak: 5,
     longBreak: 15,
     nthInterval: 0,
-    minsleft: null,
-    secsleft: null,
+    minsleft: 0,
+    secsleft: 0,
     isStart: false,
     soundAlarm: true,
   },
@@ -34,6 +34,9 @@ const store = createStore({
     },
     soundAlarmValue: (state) => {
       return state.soundAlarm;
+    },
+    getIsStart: (state) => {
+      return state.isStart;
     },
   },
   mutations: {
@@ -91,9 +94,23 @@ const store = createStore({
         case 1:
           state.soundAlarm = !state.soundAlarm;
           break;
-
+        case 2:
+          state.isStart = !state.isStart;
+          break;
         default:
           break;
+      }
+    },
+    initTimeleft(state) {
+      if (state.minsleft === 0 && state.secsleft === 0) {
+        if (state.nthInterval === 7) {
+          state.minsleft = state.longBreak;
+        } else if (state.nthInterval % 2 === 0) {
+          state.minsleft = state.pomodoro;
+        } else if (state.nthInterval % 2 === 1) {
+          state.minsleft = state.longBreak;
+        }
+        state.secsleft = 0;
       }
     },
     mutateTimeleft: (state, payload) => {
