@@ -117,6 +117,12 @@ const store = createStore({
       state.minsleft = payload.minsleft;
       state.secsleft = payload.secsleft;
     },
+    resetDefault: (state) => {
+      state.pomodoro = 25;
+      state.shortBreak = 5;
+      state.longBreak = 15;
+      state.soundAlarm = true;
+    },
   },
 });
 

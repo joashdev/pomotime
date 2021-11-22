@@ -1,5 +1,5 @@
 <template>
-  <div class="h-8 flex flex-row w-full justify-between items-center">
+  <div class="mb-2 flex flex-row w-full justify-between items-center">
     <h1 class="text-gray-900">{{ label }}</h1>
     <div
       class="
@@ -14,7 +14,7 @@
         transition-colors
       "
       :class="{ 'bg-green-400': value }"
-      @click="() => (value = !value)"
+      @click="toggleValue(1)"
     >
       <div
         class="w-6 h-6 bg-white shadow-md rounded-full transition-transform"
@@ -25,6 +25,8 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
+
 export default {
   name: 'Toggle',
   props: {
@@ -36,6 +38,9 @@ export default {
       type: Boolean,
       default: false,
     },
+  },
+  methods: {
+    ...mapMutations(['toggleValue']),
   },
 };
 </script>
