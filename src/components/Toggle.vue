@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-2 flex flex-row w-full justify-between items-center">
+  <div class="flex flex-row w-full justify-between items-center">
     <h1 class="text-gray-900">{{ label }}</h1>
     <div
       class="

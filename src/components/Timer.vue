@@ -135,7 +135,7 @@
 </template>
 <script>
 import { mapGetters, mapMutations } from 'vuex';
-import audioFile from '../assets/3beeps.ogg';
+import audioFile from '/3beeps.ogg';
 export default {
   name: 'Timer',
   data() {

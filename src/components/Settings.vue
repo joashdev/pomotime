@@ -1,10 +1,12 @@
 <template>
   <div
     class="
+      my-auto
       w-10/12
       sm:w-1/2
       md:w-3/8
-      lg:w-1/4
+      lg:w-1/3
+      xl:w-1/4
       rounded-2xl
       flex flex-col
       justify-center
@@ -14,7 +16,7 @@
       shadow-2xl
     "
   >
-    <h1 class="font-extrabold text-4xl text-gray-900 mt-6">Settings</h1>
+    <h1 class="font-extrabold text-2xl text-gray-900 mt-6">Settings</h1>
     <div class="flex flex-col w-10/12 my-4">
       <Slider :label="'Pomodoro Time'" :value="getTimers.pomodoro" :index="1" />
       <Slider
@@ -28,19 +30,12 @@
         :index="3"
       />
       <Toggle :label="'Sound Alarm'" :value="soundAlarmValue" :index="1" />
+      <Dropdown />
       <h1
         class="text-xs text-right text-red-500 underline cursor-pointer"
         @click="resetDefault"
       >
         Restore default
-      </h1>
-      <h1 class="mt-6 text-center font-extralight">
-        Created by &nbsp;<a
-          class="font-semibold underline"
-          href="https://github.com/joashdev"
-          title="visit github.com/joashdev"
-          >joash</a
-        >
       </h1>
     </div>
     <button class="mb-8" @click="gotoHome" title="Go to Home">
@@ -62,16 +57,13 @@
 import { mapGetters, mapMutations } from 'vuex';
 import Toggle from './Toggle.vue';
 import Slider from './Slider.vue';
+import Dropdown from './Dropdown.vue';
 export default {
   name: 'Settings',
   components: {
     Toggle,
     Slider,
-  },
-  data() {
-    return {
-      slider: null,
-    };
+    Dropdown,
   },
   methods: {
     gotoHome() {

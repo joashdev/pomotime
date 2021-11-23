@@ -10,6 +10,19 @@ const store = createStore({
     secsleft: 0,
     isStart: false,
     soundAlarm: true,
+    backgrounds: [
+      {
+        name: 'Flowing River',
+        value: 'flowing-river',
+        icon: '/flowing-river-small.jpg',
+      },
+      {
+        name: 'Green Trees',
+        value: 'green-trees',
+        icon: '/green-trees-small.jpg',
+      },
+    ],
+    selectedBg: 'flowing-river',
   },
   getters: {
     getTimers: (state) => {
@@ -37,6 +50,12 @@ const store = createStore({
     },
     getIsStart: (state) => {
       return state.isStart;
+    },
+    getSelectedBg: (state) => {
+      return state.selectedBg;
+    },
+    getBgs: (state) => {
+      return state.backgrounds;
     },
   },
   mutations: {
@@ -122,6 +141,9 @@ const store = createStore({
       state.shortBreak = 5;
       state.longBreak = 15;
       state.soundAlarm = true;
+    },
+    changeBg: (state, value) => {
+      state.selectedBg = value;
     },
   },
 });
