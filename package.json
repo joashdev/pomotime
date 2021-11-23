@@ -4,7 +4,9 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "preview": "firebase hosting:channel:deploy dev",
+    "deploy2fb": "firebase deploy"
   },
   "dependencies": {
     "firebase": "^9.5.0",

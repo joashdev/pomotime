@@ -1,8 +1,8 @@
 <template>
   <div
     class="
-      py-6
-      px-3
+      w-40
+      h-40
       flex flex-col flex-shrink
       justify-center
       items-center

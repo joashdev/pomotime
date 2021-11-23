@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-screen flex justify-center items-center">
+  <div class="w-full h-screen py-4 flex justify-center items-center">
     <router-view />
   </div>
 </template>

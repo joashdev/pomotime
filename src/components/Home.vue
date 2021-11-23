@@ -1,10 +1,12 @@
 <template>
   <div
     class="
+      my-auto
       w-10/12
       sm:w-1/2
       md:w-3/8
-      lg:w-1/4
+      lg:w-1/3
+      xl:w-1/4
       rounded-2xl
       flex flex-col
       justify-center
@@ -14,9 +16,13 @@
       shadow-2xl
     "
   >
-    <h1 class="font-extrabold text-4xl text-gray-900 mt-6">Home</h1>
+    <h1 class="font-extrabold text-2xl text-gray-900 mt-6">Home</h1>
     <Timer />
-    <button class="mb-8 mt-12" @click="gotoSettings" title="Go to Settings">
+    <button
+      class="mb-8 mt-12 flex flex-col justify-center items-center"
+      @click="gotoSettings"
+      title="Go to Settings"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         class="h-8 w-8 text-gray-900"

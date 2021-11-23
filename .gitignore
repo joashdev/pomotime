@@ -3,3 +3,11 @@ node_modules
 dist
 dist-ssr
 *.local
+
+# dirs
+.vscode
+.firebase
+
+# files
+.firebaserc
+firebase.json

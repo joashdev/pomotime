@@ -12,7 +12,7 @@
     :value="localValue"
     @input="updateValue"
     @change="changeValue"
-    class="mb-2"
+    class="mb-2 text-blue-800"
   />
 </template>
 
