@@ -127,7 +127,7 @@ const store = createStore({
         } else if (state.nthInterval % 2 === 0) {
           state.minsleft = state.pomodoro;
         } else if (state.nthInterval % 2 === 1) {
-          state.minsleft = state.longBreak;
+          state.minsleft = state.shortBreak;
         }
         state.secsleft = 0;
       }
