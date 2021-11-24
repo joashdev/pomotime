@@ -7,7 +7,7 @@
       justify-center
       items-center
       rounded-full
-      border-8 border-blue-800
+      border-8 border-blue-700
       my-4
     "
   >
@@ -64,7 +64,7 @@
       </svg>
     </button>
     <button
-      class="bg-white rounded-full mx-2"
+      class="rounded-full mx-2"
       v-if="getIsStart"
       title="Pause timer"
       @click="pauseClicked"

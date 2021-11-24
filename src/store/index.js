@@ -141,6 +141,7 @@ const store = createStore({
       state.shortBreak = 5;
       state.longBreak = 15;
       state.soundAlarm = true;
+      state.selectedBg = 'flowing-river';
     },
     changeBg: (state, value) => {
       state.selectedBg = value;
