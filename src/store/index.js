@@ -169,7 +169,7 @@ const store = createStore({
           delete reducer.secsleft;
         }
         delete reducer.backgrounds;
-        console.log(reducer);
+        // console.log(reducer);
         return reducer;
       },
     }),
