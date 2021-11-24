@@ -12,7 +12,7 @@
     :value="localValue"
     @input="updateValue"
     @change="changeValue"
-    class="mb-2 text-blue-800"
+    class="h-5 w-full mt-1 mb-3"
   />
 </template>
 
@@ -60,94 +60,27 @@ export default {
 };
 </script>
 
-<!-- <style>
+<style>
 input[type='range'] {
-  height: 25px;
-  -webkit-appearance: none;
-  margin: 10px 0;
+  height: 8px;
   width: 100%;
-}
-input[type='range']:focus {
+  /* -webkit-appearance: none; */
   outline: none;
-}
-input[type='range']::-webkit-slider-runnable-track {
-  width: 100%;
-  height: 5px;
-  cursor: pointer;
-  animate: 0.2s;
-  box-shadow: 0px 0px 0px #000000;
-  background: #2497e3;
-  border-radius: 1px;
-  border: 0px solid #000000;
-}
-input[type='range']::-webkit-slider-thumb {
-  box-shadow: 0px 0px 0px #000000;
-  border: 1px solid #2497e3;
-  height: 18px;
-  width: 18px;
   border-radius: 25px;
-  background: #a1d0ff;
-  cursor: pointer;
-  -webkit-appearance: none;
-  margin-top: -7px;
+  background: #f2f2f2;
+  box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.2);
 }
-input[type='range']:focus::-webkit-slider-runnable-track {
-  background: #2497e3;
-}
-input[type='range']::-moz-range-track {
-  width: 100%;
-  height: 5px;
-  cursor: pointer;
-  animate: 0.2s;
-  box-shadow: 0px 0px 0px #000000;
-  background: #2497e3;
-  border-radius: 1px;
-  border: 0px solid #000000;
+input[type='range']::-moz-range-progress {
+  height: 8px;
+  border-radius: 25px 0px 0px 25px;
+  background: #3b82f6;
 }
 input[type='range']::-moz-range-thumb {
-  box-shadow: 0px 0px 0px #000000;
-  border: 1px solid #2497e3;
-  height: 18px;
-  width: 18px;
-  border-radius: 25px;
-  background: #a1d0ff;
-  cursor: pointer;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #3b82f6;
+  background: #3b82f6;
+  -webkit-appearance: none;
 }
-input[type='range']::-ms-track {
-  width: 100%;
-  height: 5px;
-  cursor: pointer;
-  animate: 0.2s;
-  background: transparent;
-  border-color: transparent;
-  color: transparent;
-}
-input[type='range']::-ms-fill-lower {
-  background: #2497e3;
-  border: 0px solid #000000;
-  border-radius: 2px;
-  box-shadow: 0px 0px 0px #000000;
-}
-input[type='range']::-ms-fill-upper {
-  background: #2497e3;
-  border: 0px solid #000000;
-  border-radius: 2px;
-  box-shadow: 0px 0px 0px #000000;
-}
-input[type='range']::-ms-thumb {
-  margin-top: 1px;
-  box-shadow: 0px 0px 0px #000000;
-  border: 1px solid #2497e3;
-  height: 18px;
-  width: 18px;
-  border-radius: 25px;
-  background: #a1d0ff;
-  cursor: pointer;
-}
-input[type='range']:focus::-ms-fill-lower {
-  background: #2497e3;
-}
-input[type='range']:focus::-ms-fill-upper {
-  background: #2497e3;
-}
-</style> -->
+</style>

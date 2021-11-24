@@ -30,7 +30,18 @@
         :value="getTimers.longBreak"
         :index="3"
       />
-      <Toggle :label="'Sound Alarm'" :value="soundAlarmValue" :index="1" />
+      <Toggle
+        :label="'Sound Alarm'"
+        :value="soundAlarmValue"
+        :index="1"
+        :ariaval="'Alarm sound when timer hits 00:00'"
+      />
+      <Toggle
+        :label="'Keep timer after close'"
+        :value="getKeepTimeleft"
+        :index="3"
+        :ariaval="'Keep timer data after window or app is closed/refreshed'"
+      />
       <Dropdown />
       <h1
         class="text-xs text-right text-red-500 underline cursor-pointer"
@@ -58,7 +69,7 @@ export default {
     ...mapMutations(['resetDefault']),
   },
   computed: {
-    ...mapGetters(['getTimers', 'soundAlarmValue']),
+    ...mapGetters(['getTimers', 'soundAlarmValue', 'getKeepTimeleft']),
   },
 };
 </script>

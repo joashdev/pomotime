@@ -40,16 +40,18 @@
           flex
           items-center
           justify-center
-          bg-white bg-opacity-30
+          bg-white bg-opacity-20
           backdrop-filter backdrop-blur-md
-          hover:bg-opacity-40
+          font-thin
+          hover:bg-opacity-40 hover:font-normal
           rounded-tl-2xl
+          text-gray-800
         "
         to="/"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6 text-gray-900"
+          class="h-6 w-6"
           viewBox="0 0 20 20"
           fill="currentColor"
         >
@@ -68,14 +70,15 @@
           justify-center
           bg-white bg-opacity-30
           backdrop-filter backdrop-blur-md
-          hover:bg-opacity-40
-          active:bg-opacity-60
+          font-thin
+          hover:bg-opacity-40 hover:font-normal
+          text-gray-800
         "
         to="/settings"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6 text-gray-900"
+          class="h-6 w-6"
           viewBox="0 0 20 20"
           fill="currentColor"
         >
@@ -97,7 +100,9 @@
           justify-center
           bg-white bg-opacity-30
           backdrop-filter backdrop-blur-md
-          hover:bg-opacity-40
+          font-thin
+          hover:bg-opacity-40 hover:font-normal
+          text-gray-800
         "
         to="/about"
       >
@@ -143,5 +148,6 @@ export default {
 <style>
 .active {
   background-color: rgba(255, 255, 255, 0.6) !important;
+  font-weight: bold !important;
 }
 </style>

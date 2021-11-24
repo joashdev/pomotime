@@ -11,6 +11,7 @@ const store = createStore({
     secsleft: 0,
     isStart: false,
     soundAlarm: true,
+    keepTimeleft: true,
     backgrounds: [
       {
         name: 'Flowing River',
@@ -56,6 +57,9 @@ const store = createStore({
     },
     getIsStart: (state) => {
       return state.isStart;
+    },
+    getKeepTimeleft: (state) => {
+      return state.keepTimeleft;
     },
     getSelectedBg: (state) => {
       return state.selectedBg;
@@ -122,6 +126,9 @@ const store = createStore({
         case 2:
           state.isStart = !state.isStart;
           break;
+        case 3:
+          state.keepTimeleft = !state.keepTimeleft;
+          break;
         default:
           break;
       }
@@ -153,7 +160,20 @@ const store = createStore({
       state.selectedBg = value;
     },
   },
-  plugins: [createPersistedState()],
+  plugins: [
+    createPersistedState({
+      reducer: (state) => {
+        let reducer = Object.assign({}, state);
+        if (!state.keepTimeleft) {
+          delete reducer.minsleft;
+          delete reducer.secsleft;
+        }
+        delete reducer.backgrounds;
+        console.log(reducer);
+        return reducer;
+      },
+    }),
+  ],
 });
 
 export default store;
