@@ -1,4 +1,5 @@
 import { createStore } from 'vuex';
+import createPersistedState from 'vuex-persistedstate';
 
 const store = createStore({
   state: {
@@ -20,6 +21,11 @@ const store = createStore({
         name: 'Green Trees',
         value: 'green-trees',
         icon: '/green-trees-small.jpg',
+      },
+      {
+        name: 'Lofi',
+        value: 'study-lofi',
+        icon: '/study-lofi.jpg',
       },
     ],
     selectedBg: 'flowing-river',
@@ -147,6 +153,7 @@ const store = createStore({
       state.selectedBg = value;
     },
   },
+  plugins: [createPersistedState()],
 });
 
 export default store;

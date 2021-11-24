@@ -7,6 +7,7 @@ module.exports = {
       backgroundImage: {
         'flowing-river': "url('./src/assets/flowing-river.jpg')",
         'green-trees': "url('./src/assets/green-trees.jpg')",
+        'study-lofi': "url('./src/assets/study-lofi.jpg')",
       },
     },
   },

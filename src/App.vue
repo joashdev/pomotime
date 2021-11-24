@@ -10,9 +10,11 @@
       bg-no-repeat bg-cover bg-center
       overflow-y-scroll
     "
-    :class="
-      getSelectedBg === 'green-trees' ? 'bg-green-trees' : 'bg-flowing-river'
-    "
+    :class="[
+      getSelectedBg === 'flowing-river' && 'bg-flowing-river',
+      getSelectedBg === 'green-trees' && 'bg-green-trees',
+      getSelectedBg === 'study-lofi' && 'bg-study-lofi',
+    ]"
   >
     <div
       id="nav"
@@ -119,8 +121,19 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapMutations } from 'vuex';
 export default {
+  methods: {
+    getClass() {
+      switch (this.getSelectedBg()) {
+        case 'flowing-river':
+          return 'bg-flowing-river';
+          break;
+        default:
+          break;
+      }
+    },
+  },
   computed: {
     ...mapGetters(['getSelectedBg']),
   },
