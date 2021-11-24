@@ -124,20 +124,6 @@ export default {
   box-shadow: 0px 1px 0px 3px #fff;
 }
 
-.slide-fade-enter-active {
-  transition: all 0.3s ease-out;
-}
-
-.slide-fade-leave-active {
-  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
-}
-
-.slide-fade-enter-from,
-.slide-fade-leave-to {
-  transform: translateX(20px);
-  opacity: 0;
-}
-
 /* Slide-in-up animation*/
 .slide-in-up-enter-active,
 .slide-in-up-leave-active {
@@ -148,53 +134,5 @@ export default {
 .slide-in-up-leave-to {
   opacity: 0;
   transform: translateY(20px);
-}
-
-/* Slide-in-right animation*/
-.slide-in-right-enter-active,
-.slide-in-right-leave-active {
-  transition: all 0.5s;
-  transform: translateX(0);
-}
-.slide-in-right-enter,
-.slide-in-right-leave-to {
-  opacity: 0;
-  transform: translateX(20px);
-}
-
-/* Slide-in-left animation*/
-.slide-in-left-enter-active,
-.slide-in-left-leave-active {
-  transition: all 0.5s;
-  transform: translateX(0);
-}
-.slide-in-left-enter,
-.slide-in-left-leave-to {
-  opacity: 0;
-  transform: translateX(-20px);
-}
-
-/* Scale animation*/
-.scale-enter-active,
-.scale-leave-active {
-  transition: all 0.5s;
-  transform: scale(1);
-}
-.scale-enter,
-.scale-leave-to {
-  opacity: 0;
-  transform: scale(0);
-}
-
-/* Rotate animation*/
-.rotate-enter-active,
-.rotate-leave-active {
-  transition: all 0.5s;
-  transform: scale(1) rotate(-360deg);
-}
-.rotate-enter,
-.rotate-leave-to {
-  opacity: 0;
-  transform: scale(0) rotate(360deg);
 }
 </style>

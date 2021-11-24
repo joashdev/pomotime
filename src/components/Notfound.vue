@@ -18,17 +18,16 @@
       py-8
     "
   >
-    <h1 class="font-extrabold text-2xl text-gray-900">Home</h1>
-    <Timer />
+    <h1 class="font-extrabold text-2xl text-gray-900">Page Not Found</h1>
+    <img class="h-60 -mt-3" src="/error.svg" alt="notfound" />
+    <p class="m-0 -mt-3 text-gray-900 font-semibold">
+      The link you entered does not exist.
+    </p>
   </div>
 </template>
 
 <script>
-import Timer from './Timer.vue';
 export default {
-  name: 'Home',
-  components: {
-    Timer,
-  },
+  name: 'Notfound',
 };
 </script>

@@ -55,15 +55,6 @@ export default {
     Dropdown,
   },
   methods: {
-    gotoHome() {
-      this.$router.push('/');
-    },
-    handleThis(e) {
-      console.log(e.target.value);
-    },
-    submitThis(e) {
-      console.log('submit value: ', e.target.value);
-    },
     ...mapMutations(['resetDefault']),
   },
   computed: {
