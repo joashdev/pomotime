@@ -33,10 +33,11 @@
       Created by &nbsp;
       <a
         class="font-semibold underline"
-        href="https://github.com/joashdev"
-        title="visit github.com/joashdev"
+        href="https://joash.dev"
+        title="visit joash.dev"
+        target="_blank"
       >
-        joash
+        joashdev
       </a>
     </h1>
     <p class="font-extralight">

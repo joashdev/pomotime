@@ -1,15 +1,12 @@
 {
-  "name": "starter-template",
+  "name": "pomotime",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
-    "serve": "vite preview",
-    "preview2fb": "firebase hosting:channel:deploy dev",
-    "deploy2fb": "firebase deploy"
+    "serve": "vite preview"
   },
   "dependencies": {
-    "firebase": "^9.5.0",
     "vue": "^3.2.19",
     "vue-router": "^4.0.11",
     "vuex": "^4.0.2",
